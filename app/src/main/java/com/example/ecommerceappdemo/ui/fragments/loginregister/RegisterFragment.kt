@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.ecommerceappdemo.R
 import com.example.ecommerceappdemo.data.UserModel
@@ -16,10 +17,12 @@ import dagger.hilt.android.AndroidEntryPoint
 class RegisterFragment : Fragment() {
 
     private lateinit var binding: FragmentRegisterBinding
+    //private val viewModel by viewModels<RegisterViewModel>()
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Initializing binding--------
@@ -38,6 +41,9 @@ class RegisterFragment : Fragment() {
                     etEmailConfirmPass.text.toString().trim()
                 )
             }
+        }
+        lifecycleScope.launchWhenStarted {
+
         }
     }
 
